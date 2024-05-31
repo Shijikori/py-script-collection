@@ -32,7 +32,7 @@ class RCONClient:
     _authenticated = False
     def __init__(self, host:str, port:int):
         self._conn.connect((host, port))
-        self.authenticated = False
+        self._authenticated = False
     @classmethod
     def auth(self, password:str):
         auth_pack = RCONPacket(1, 3, password)
@@ -63,5 +63,5 @@ class RCONClient:
     @classmethod
     def __del__(self):
         self._conn.close()
-        del authenticated
+        del _authenticated
 
